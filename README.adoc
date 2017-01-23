@@ -1,0 +1,89 @@
+= Credit Manager
+:uri-freesoftware: https://www.gnu.org/philosophy/free-sw.html
+Sven Bauhan <sde@sven.bauhan.name>
+:doctype: article
+:encoding: utf-8
+:lang: en
+#:toc: left
+:numbered:
+
+This application is a server application to manage credit contracts.
+It was developed within a living project called http://www.heinersyndikat.de[Heinersyndikat].
+
+== Installation
+
+=== Getting the source code
+
+Clone the application repository using git:
+
+ $ git clone ssh://git@github.com:teezett/credit-manager.git
+
+=== Requirements
+
+As the documentation is generated using asciidoc, the maven pom.xml relies on the http://asciidoctor.org/docs/asciidoctor-maven-plugin/[asciidoctor maven plugin].
+As the documentation contains diagrams generated with http://de.plantuml.com/[PlantUML], asciidoctor uses the +asciidoctor-diagram+ extension.
+PlantUML needs the http://www.graphviz.org/[Graphviz dot] tool available in the local path to render the diagrams.
+
+==== On JRuby dependency
+
+Asciidoctor Maven plugin relies on https://github.com/asciidoctor/asciidoctor[asciidoctor] project to do the actual rendering. This is a Ruby implementation integrated thanks to the http://jruby.org/[JRuby] project, which is a required dependency to run the plugin. The maven plugin provides a default version of the `jruby-complete` artifact to ease its configuration. However, it can be overwritten just adding a custom version in the plugin's dependency section as seen in the following example:
+[source,xml,indent=2]
+----
+<plugin>
+    <groupId>org.asciidoctor</groupId>
+    <artifactId>asciidoctor-maven-plugin</artifactId>
+    <version>${asciidoctor.maven.plugin.version}</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.jruby</groupId>
+            <artifactId>jruby-complete</artifactId>
+            <version>${jruby.version}</version>
+        </dependency>
+    <dependencies>
+</plugin>
+----
+
+=== Build
+
+There are different goals defined to build different parts of the application package.
+
+The default is to build just the java classes for development; it is done in the `build` profile:
+
+ $> mvn [-Pbuild]
+
+The documentation (asciidoc) is generated in the `doc` profile:
+
+ $> mvn -Pdoc
+
+The `.jar` files are generated in the `assembly` profile.
+But this is also done when everything is generated.
+This will be done when the property `release` is defined:
+
+ $> mvn -Drelease
+
+== Documentation
+
+The following documentation is available and generated within the project:
+
+<<src/docs/asciidoc/manual.adoc#,Credit Manager User Manual>>::
+User Manual for the description of parameters and configuration of Credit Manager
+
+link:src/docs/asciidoc/requirements.adoc[Requirements for Credit Manager]::
+Software-Requirements for project Credit Manager
+
+link:src/docs/asciidoc/design.adoc[Design of Credit Manager]::
+Software Design description of Credit Manager
+
+The links to these sources are not generated at this location and may not contain the diagrams.
+To see it completely, perform a build and read the documentation in the `target/generated-docs/` directory.
+
+== Contributing
+
+If you like to contribute to the project or just to give some feedback, email me at mailto:sde@sven.bauhan.name[].
+
+== Copyright and Licensing
+
+Copyright (C) 2017 Heinersyndikat e.V.
+Free use of this software is granted under the terms of the GPL License.
+
+See the link:LICENSE[] file for details.

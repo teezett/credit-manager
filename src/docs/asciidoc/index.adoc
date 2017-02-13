@@ -1,0 +1,17 @@
+// configure EN settings for asciidoc
+include::_config.adoc[]
+
+= Project Credit Manager
+
+== Documentation
+
+The project Credit Manager contains several kinds of documentation:
+
+<<requirements.adoc#,Requirements>>::
+The description of the requirements which shall be fulfilled with this tool.
+
+<<architecture.adoc#,Architecture>>::
+The description of the software architecture and the decisions which lead to them.
+
+<<manual.adoc#,User Manual>>::
+The manual for users and system administrators to explain, how to use the tool.

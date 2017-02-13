@@ -1,0 +1,62 @@
+// configure EN settings for asciidoc
+include::_config.adoc[]
+
+= Requirements for Credit Manager
+
+This document describes the requirements of <<index.adoc#,project Credit Manager>>.
+
+[[section-goals]]
+== Goals
+
+The intention of this project is to solve the following goals:
+
+* Handle credit contracts
+
+
+[[section-domain-model]]
+== Domain Model
+
+[glossary]
+
+
+[[section-usecase-overview]]
+== Use Case Overview
+
+For the software the following use cases have been identified:
+
+.Use case overview
+[plantuml, use_cases, png]
+--
+
+--
+
+
+The identified use cases will be described below.
+The https://www.sophist.de/fileadmin/SOPHIST/UML/uml2-4_linknummern/12-1_Schablone_fuer_%20Use-Case-Beschreibung.pdf[use case template of the SOPHIST group] and the http://alistair.cockburn.us/Use+case+fundamentals[description of Alistair Cockburn] will be used here.
+Instead of a textual description of the steps activity diagrams are used.
+
+[[section-userlevel-usecases]]
+== User level use cases
+
+=== New contract
+
+[[usecase-new-contract]]
+.UseCase New credit contract
+[cols=">.^1s,<10"]
+|====
+|Goal | A new credit contract was signed
+|Scope | system
+|Level | user
+|Preconditions |
+|Success condition | 
+|Failure condition | 
+|Actors | 
+|Trigger | The user provides a password to be encrypted/decrypted on the commandline
+|Steps | in <<steps-new-contract, diagram>>
+|====
+
+[[steps-new-contract]]
+.Add a new credit contract
+[plantuml, new-contract, png]
+--
+--

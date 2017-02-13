@@ -1,0 +1,15 @@
+// asciidoc settings for EN (English)
+// ==================================
+:author: Sven Bauhan
+:email: sde@sven.bauhan.name
+:doctype: book
+:encoding: utf-8
+:revnumber: 0.1
+:lang: en
+:toc-title: Table of contents
+
+// enable table-of-contents
+:toc: left
+
+// where are images located?
+:imagesdir: ./images
